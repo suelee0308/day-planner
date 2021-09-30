@@ -31,11 +31,13 @@ $("button").each(function(){
     console.log(typeof keyID);
     var storedEvent = localStorage.getItem(keyID);
     console.log(storedEvent);
-        if(storedEvent) {
-            $("#"+keyID).each(function(){
-                plannedEvent.val(storedEvent)
-            });
-        }
+
+    $("#"+keyID).val(storedEvent)
+        // if(storedEvent) {
+        //     $("#"+keyID).each(function(){
+        //         plannedEvent.val(storedEvent)
+        //     });
+        // }
 })
 
 
