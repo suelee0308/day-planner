@@ -6,6 +6,7 @@ var userInput;
 var localInput = localStorage.getItem("plannedEvent");
 var keyName;
 
+
 // show current day at the top in this format: DoW, Month day
 $("#currentDay").text(moment.format("dddd, MMMM Do, YYYY"));
 
@@ -22,17 +23,45 @@ function saveEvent(event) {
     localStorage.setItem(keyName, userEvent);
 };
 
+
 // function to retrieve date from local storage at refresh
-var keyID = localStorage.getItem(keyName);
-console.log(keyID);
-$("input").each(function() {
-    var id = $(this).attr("id");
-    console.log(id);
-    if (keyID == id) {
-      plannedEvent.text = localStorage.getItem(keyID)
-    }
+$("button").each(function(){
+    var keyID = $(this).attr("id");
+    console.log(keyID);
+    console.log(typeof keyID);
+    var storedEvent = localStorage.getItem(keyID);
+    console.log(storedEvent);
+        if(storedEvent) {
+            $("#"+keyID).each(function(){
+                plannedEvent.val(storedEvent)
+            });
+        }
 })
 
+
+
+
+
+
+// var keyID = $("row").children().eq(3).attr("id");
+// console.log(keyID);
+// var fromLocal = localStorage.getItem(10);
+// console.log(fromLocal);
+// $(function(){ 
+//     $("button").each(function() {
+//         var id = $(this).attr("id");
+//         console.log(id);
+//         if (keyID == id) {
+//         plannedEvent.text = localStorage.getItem(keyID)
+//         }
+//     });
+// });
+
+// $(document).ready(function(){
+
+// })
+// function ()
+// if (this.find("id").val()
 
 
 
